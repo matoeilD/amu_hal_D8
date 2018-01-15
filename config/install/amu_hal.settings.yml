@@ -1,0 +1,24 @@
+amu_hal_url_ws : 'https://api.archives-ouvertes.fr/'
+#les types d'articles cf HAL API
+docType_s:
+    ART : "Journal articles"
+    COMM :  "Conference papers"
+    COUV :  "Book section"
+    OTHER : "Other publications"
+    OUV : "Books"
+    DOUV : "Directions of work or proceedings"
+    POSTER : "Poster communications"
+    PATENT : "Patents"
+    UNDEFINED : "Preprints, Working Papers, ..."
+    REPORT : "Reports"
+    THESE : "Theses"
+    HDR : "Accreditation to supervise research"
+    LECTURE : "Lectures"
+#number of rows to display
+#hal_last_pub_rows : 5
+  #Identifiant HAL du dépôt
+halId_s : 'HAL_ID'
+#retrieve datas from which date
+#HAL structure IDs
+structId_i : 'Identifiant HAL de la structure'
+hal_date_start : 2000

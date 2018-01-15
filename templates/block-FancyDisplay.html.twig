@@ -1,0 +1,50 @@
+<div class="bloc-FancyDisplay {{  isDisplay }}">
+
+
+  {% if content.response.docs|length ==0 %}
+    <div> Aucune publication avec ces critères</div>
+  {% endif %}
+
+  {% for row in content.response.docs %}
+
+    <ul class="hal-pub-list-type-2">
+      <li class="row hal-pub" >
+        <a href="/publication/{{ row.halId_s }}">
+          <div class="hal-pub__title">
+            {%  if (language=="fr") %}
+              {{ row.title_s|first }}
+            {% else %}
+              {{ row.en_title_s|first}}
+            {% endif %}
+          </div>
+          <ul class="hal-pub__authors">
+            {% for auth in row.authLastNameFirstName_s  %}
+              <li>{{ auth }}</li>
+            {% endfor %}
+          </ul>
+          <div class="journalTitle_s"> {{ row.journalTitle_s}} </div>
+        </a>
+      </li>
+    </ul>
+
+  {% endfor %}
+
+  {% if year_tab %}
+    <div class="nav-widget">
+      {% for year in year_tab %}
+        <ul class="hal-year-nav">
+          <li> <a href="{{ url('<current>') }}?year={{ year }}">{{ year }}</a></li>
+        </ul>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  {% if row_max_unset %}
+    <div class="hal-more-pub">    <a href="{{ url('<current>') }}?row_max_unset=true">{{ 'More publications'|t }} </a></div>
+  {% endif %}
+
+  {% if internal_link %}
+    <div class="hal-more-pub">    <a href="{{ internal_link }}">{{ 'More publications'|t }} </a></div>
+  {% endif %}
+
+</div>

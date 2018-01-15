@@ -1,0 +1,69 @@
+
+<!-- TODO affiner les trads et les no-content-->
+
+
+<div class="page-PublicationDetails">
+
+
+  <!-- kept for debugging purposes {{ url }}{{ language }}{{kint(content)}}-->
+
+  {% for doc in content.response.docs %}
+
+  <h1 class="doc-title">
+    {%  if (language=="fr") %}
+      {{ doc.title_s|first }}
+    {% else %}
+      {{ doc.en_title_s|first}}
+    {% endif %}
+
+    <h2>{{ 'AUTHORS'|t }}</h2>
+    <ul class="doc-authors">
+      {% for auth in doc.authLastNameFirstName_s  %}
+        <li>{{ auth }}</li>
+      {% endfor %}
+    </ul>
+
+    {% if doc.keyword_s %}
+
+      <h2>{{ 'KEYWORDS'|t }}</h2>
+      {%  if (language=="fr") %}
+        {% for fr_keyword in doc.keyword_s %}
+          <li>{{ fr_keyword }}</li>
+        {% endfor %}
+      {%  else %}
+        {% for en_keyword in doc.en_keyword_s %}
+          <li>{{ en_keyword }}</li>
+        {% endfor %}
+      {%  endif %}
+    {% endif %}
+
+    <h2>{{ 'Document type'|t }}</h2>
+    {{ docTypes_array[doc.docType_s]  }}
+
+    <h2>{{ 'Abstract'|t }}</h2>
+    <p class="doc-abstract">
+      {%  if (language=="fr") %}
+        {%  if doc.abstract_s %}
+          {{ doc.abstract_s|first }}
+        {% else %}
+          {{ doc.en_abstract_s|first}}
+        {% endif %}
+      {% else %}
+        {{ doc.en_abstract_s|first}}
+      {% endif %}
+
+      {% if (doc.fileMain_s) %}
+    <h2>{{ 'FILE'|t }}</h2>
+    <a class="doc-file" href="{{ doc.fileMain_s }}">
+      <img src="/{{ directory }}/images/doc_file.png"/>
+    </a>
+    {% endif %}
+
+
+    <p class="doc-more-info">
+      <a class="more" href="{{ doc.uri_s }}">{{ 'MORE INFORMATION'|t }}</a>
+    </p>
+
+    {% endfor %}
+
+</div>

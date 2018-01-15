@@ -1,0 +1,29 @@
+amu_hal.admin:
+  path: '/admin/config/services/amu_hal'
+  defaults:
+    _form: '\Drupal\amu_hal\Form\amu_halSettingsForm'
+    _title: 'amu_hal'
+  requirements:
+    _permission: 'administer site configuration'
+
+amu_hal.publication_detail:
+#parameter upcasting
+  path: '/publication/{halId_s}'
+  defaults:
+    _controller: '\Drupal\amu_hal\Controller\AmuHalController::publicationDetail'
+    _title: 'publication detail'
+  options:
+    parameters:
+      halId_s:
+        type: int
+  requirements:
+    _permission: 'access content'
+
+#amu_hal.publicationsPerYear:
+#  path: '/publications/{year}'
+#  defaults:
+#    _controller: '\Drupal\amu_hal\Controller\AmuHalController::publicationPerYear'
+#    _title: 'publicationPerYear'
+#    year: 2016
+#  requirements:
+#    _permission: 'access content'

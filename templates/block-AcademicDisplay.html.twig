@@ -1,0 +1,41 @@
+<div class="bloc-AcademicDisplay {{  isDisplay }}">
+  {#{{  url }}#}
+
+  {#<h1>{{ 'Publications'|t }} {{ year }}</h1>#}
+
+  {% if content.response.docs|length ==0 %}
+    <div> Aucune publication avec ces critères</div>
+  {% endif %}
+
+  {% for row in content.response.docs %}
+    <ul class="hal-pub-list">
+      <li class="row hal-pub">
+        <a href="/publication/{{ row.halId_s }}">
+          {{ row.label_s|raw }}
+          <span class="hal_pub_doctype"> {{ docTypes_array[row.docType_s]  }} </span>
+        </a>
+      </li>
+    </ul>
+  {% endfor %}
+
+  {% if year_tab %}
+    <div class="nav-widget">
+      {% for year in year_tab %}
+        <ul class="hal-year-nav">
+          <li> <a href="{{ url('<current>') }}?year={{ year }}">{{ year }}</a></li>
+        </ul>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  {% if row_max_unset %}
+    <div class="hal-more-pub">    <a href="{{ url('<current>') }}?row_max_unset=true">{{ 'More publications'|t }} </a></div>
+  {% endif %}
+
+  {% if internal_link %}
+    <div class="hal-more-pub">    <a href="{{ internal_link }}">{{ 'More publications'|t }} </a></div>
+  {% endif %}
+
+
+
+</div>

@@ -1,0 +1,6 @@
+amu_hal.admin_settings:
+  title:  'AMU HAL settings'
+  description: 'Define parameters for retrieving HAL publications.'
+  route_name: amu_hal.admin
+  parent: system.admin_config_services
+  weight: 0

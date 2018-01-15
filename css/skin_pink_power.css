@@ -1,0 +1,26 @@
+
+ul.hal-pub-list-type-2 li.hal-pub a:hover {
+  background-color: rgb(150, 60, 245);
+  color: rgb(255, 255, 255);
+  filter:none;
+}
+
+.block-amu-hal .row a:hover,.block-amu-hal .row a:focus{
+  color:unset;
+  border-bottom: 1px solid rgb(150, 60, 245);
+
+}
+
+.block-amu-hal .hal-year-nav a,.hal-year-nav a:active,.hal-year-nav a:hover,.hal-year-nav a:focus {
+  color: rgb(150, 60, 245);
+  transition: all 0.2s ease-in-out 0s;
+}
+
+.hal-more-pub a, .hal-more-pub a:hover, .hal-more-pub a:focus{
+  background-color: rgb(150, 60, 245);
+  color: rgb(255, 255, 255);
+}
+
+.hal-more-pub:hover {
+  opacity: 0.7;
+}

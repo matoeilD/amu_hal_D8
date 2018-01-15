@@ -1,0 +1,48 @@
+<?php
+
+
+/**
+ *
+ * @author m.dandonneau
+ *
+ * defining twig file names and assign variables to it
+ *
+ *
+ * @param $existing
+ * @param $type
+ * @param $theme
+ * @param $path
+ * @return array
+ */
+function amu_hal_theme($existing, $type, $theme, $path) {
+
+   $arguments= array(
+    'variables' => array(
+      'content' => 'Default content',
+      'url' => 'default content',
+      'docTypes_array' => 'whatever',
+      'year_tab' => null,
+      'row_max_unset' => null,
+      'internal_link' => null,
+      'isDisplay' =>''
+    ),
+  );
+
+  $arguments4details= array(
+    'variables' => array(
+      'content' => 'Default content',
+      'url' => 'default content',
+      'language' => '',
+      'docTypes_array' => '',
+    ),
+  );
+
+
+
+  // this is the name of the templates
+  return array(
+    'block-AcademicDisplay' =>  $arguments,
+    'block-FancyDisplay' =>     $arguments,
+    'page-PublicationDetails' =>     $arguments4details,
+  );
+}
